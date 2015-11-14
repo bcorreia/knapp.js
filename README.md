@@ -1,5 +1,5 @@
 # kanpp.js
-![Bower version](https://img.shields.io/bower/v/kanpp.js.svg?style=flat)
+![Bower version](https://img.shields.io/bower/v/knapp.js.svg?style=flat)
 [![npm version](https://img.shields.io/npm/v/knapp.js.svg?style=flat)](https://www.npmjs.com/package/kanpp.js)
 [![Build Status](https://travis-ci.org/bcorreia/knapp.js.svg?branch=master)](https://travis-ci.org/bcorreia/kanpp.js)
 
@@ -33,16 +33,16 @@ var example = new Knapp(document.querySelector('ul.example'), {
 
 ## Default Settings
 ```javascript
-selected: 0,
-onSelect: function() {},
-onChange: function() {}
+selected: 0, // zero index
+onSelect: function() {}, // callback fn
+onChange: function() {} // callback fn
 ```
+
 ### Callbacks
 ```javascript
 onSelect: function(obj) {  // called once item has been selected
     // { name: value, action: value }
 }
-
 onChange: function(obj) { // called on every change
     // { name: value, action: value }
 }
@@ -59,9 +59,9 @@ Add `data-knapp` attribute to every list element.
 ```
 
 ### CSS
+```
 TBD
 ```
----
 
 ## License
 This software is free to use under the [MIT license](https://github.com/bcorreia/kanpp.js/blob/master/license.md).
