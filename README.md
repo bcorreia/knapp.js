@@ -1,7 +1,7 @@
-# kanpp.js
+# knapp.js
 ![Bower version](https://img.shields.io/bower/v/knapp.js.svg?style=flat)
-[![npm version](https://img.shields.io/npm/v/knapp.js.svg?style=flat)](https://www.npmjs.com/package/kanpp.js)
-[![Build Status](https://travis-ci.org/bcorreia/knapp.js.svg?branch=master)](https://travis-ci.org/bcorreia/kanpp.js)
+[![npm version](https://img.shields.io/npm/v/knapp.js.svg?style=flat)](https://www.npmjs.com/package/knapp.js)
+[![Build Status](https://travis-ci.org/bcorreia/knapp.js.svg?branch=master)](https://travis-ci.org/bcorreia/knapp.js)
 
 ---
 Add knapp.js - Knapp can take any shape color and size.<br />
@@ -13,7 +13,7 @@ You may install knapp.js using package managers.<br />
 bower install knapp.js
 npm install knapp.js
 
-# kanpp.min.js (minified version)
+# knapp.min.js (minified version)
 ```
 
 ## Usage
@@ -64,4 +64,4 @@ TBD
 ```
 
 ## License
-This software is free to use under the [MIT license](https://github.com/bcorreia/kanpp.js/blob/master/license.md).
+This software is free to use under the [MIT license](https://github.com/bcorreia/knapp.js/blob/master/license.md).
