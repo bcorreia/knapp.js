@@ -3,35 +3,33 @@
 <head>
     <meta charset="utf-8" />
     <title>Knapp.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
     <div>
         <ul class="birds">
-            <li data-knapp="custom.fn.name" class="bluebird">Mountain Bluebird</li>
-            <li data-knapp="custom.fn.name" class="snow">Snow Buting</li>
-            <li data-knapp="custom.fn.name" class="indigo">Indigo Bunting</li>
-            <li data-knapp="custom.fn.name" class="rail">King Rail</li>
-            <li data-knapp="custom.fn.name" class="gallinule">Purple Gallinule</li>
-            <li data-knapp="custom.fn.name" class="canvasback">Canvasback</li>
+            <li data-knapp="fn" class="bluebird">Mountain Bluebird</li>
+            <li data-knapp="fn" class="snow">Snow Buting</li>
+            <li data-knapp="fn" class="indigo">Indigo Bunting</li>
+            <li data-knapp="fn" class="rail">King Rail</li>
+            <li data-knapp="fn" class="gallinule">Purple Gallinule</li>
+            <li data-knapp="fn" class="canvasback">Canvasback</li>
         </ul>
     </div>
     <div class="feedback"></div>
     <script src="./knapp.js"></script>
     <script>
         var feedback = document.querySelector('.feedback');
-        console.log(feedback);
         var birds = new Knapp(document.querySelector('ul.birds'), {
             selected: 1, // index 0
             onSelect: function(obj) {
-                if ( obj.action === "custom.fn.name" ) {
+                if ( obj.action === "fn" ) {
                     feedback.innerHTML = "You’ve clicked on: "+ obj.name;
                 }
             },
             onChange: function(obj) {
-                console.log(obj);
                 feedback.innerHTML = "";
             }
         });

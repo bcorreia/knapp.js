@@ -1,4 +1,3 @@
-
 var Knapp = (function() {
     'use strict';
 
@@ -9,17 +8,17 @@ var Knapp = (function() {
     };
 
     var methods = {
-        init: function(list) {
+        init: function(node) {
             var elements = this.elements,
-                parent = list.parentNode;
+                parent = node.parentNode;
 
-            for ( var i = 0; i < list.children.length; i += 1 ) {
+            for ( var i = 0; i < node.children.length; i += 1 ) {
                 this.data[i] = {
-                    name: list.children[i].innerHTML,
-                    action: list.children[i].getAttribute("data-knapp"),
-                    classlist: list.children[i].getAttribute("class")
+                    name: node.children[i].innerHTML,
+                    action: node.children[i].getAttribute("data-knapp"),
+                    classlist: node.children[i].getAttribute("class")
                 }
-            };
+            }
 
             ['knapp', 'stage', 'next', 'prev'].forEach(function(name, i) {
                 elements[name] = document.createElement('div');
@@ -32,7 +31,7 @@ var Knapp = (function() {
             elements.knapp.appendChild(elements.next); // next
             elements.stage.classList.add(this.data[this.settings.selected].classlist);
 
-            parent.removeChild(list);
+            parent.removeChild(node);
             parent.appendChild(elements.knapp);
             this.addlisteners();
         },
@@ -42,7 +41,6 @@ var Knapp = (function() {
                 stage = this.elements.stage;
 
             knapp.addEventListener('click', function(event) {
-
                 switch ( event.target.className.match(/\w*/)[0] ) {
                     case "prev":
                         selected = (selected === 0) ? this.data.length-1 : selected -= 1;
@@ -71,7 +69,7 @@ var Knapp = (function() {
                         stage.removeAttribute("style");
                         this.update(selected);
                     }.bind(this), 1);
-                }
+                };
 
                 if ( event.target.className.match(/-up$/) ) {
                     stage.classList.remove('transition', '-up');
@@ -93,22 +91,23 @@ var Knapp = (function() {
             return this.settings.onChange(this.data[selected]); // callback
         },
         action: function(selected) {
-            var item = this.data[selected];
+            var item = this.data[selected],
+                address = new RegExp(/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/);
 
-            if ( item.action.match(/http/gi) ) {
-                window.location.href = item.action;
-            } else {
-                return this.settings.onSelect(item); // callback
-            }
+            item.action.match(address) ?
+                window.location.href = item.action :
+                this.settings.onSelect(item); // callback
 
+            return;
         }
-    }
+    };
 
     /**
-     * merge defaults with user options
-     * @param {Object} defaults Default settings
-     * @param {Object} options User options
-     * @returns {Object} Merged values of defaults and options
+     * extend
+     * merge defaults and options
+     * @param {Object} default
+     * @param {Object} options
+     * @returns {Object} merged values
      *
      */
      function extend(defaults, options) {
@@ -121,16 +120,17 @@ var Knapp = (function() {
 
      /**
       * constructor
+      * @param {Object} node element
       * @param {Object} options
       *
       */
-    function Knapp(list, options) {
+    function Knapp(node, options) {
         var knapp = Object.create(methods, {
             settings: { value: extend(defaults, options || {}) },
             elements: { value: {}, writable: true },
             data: { value: [], writable: true }
-        })
-        knapp.init(list);
+        });
+        knapp.init(node);
     }
 
     return Knapp;
