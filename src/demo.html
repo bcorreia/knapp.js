@@ -13,6 +13,7 @@
             <li data-knapp="fn" class="bluebird">Mountain Bluebird</li>
             <li data-knapp="fn" class="snow">Snow Buting</li>
             <li data-knapp="fn" class="indigo">Indigo Bunting</li>
+            <li data-knapp="add dogs" class="dogs">Please Add Dogs!</li>
             <li data-knapp="fn" class="rail">King Rail</li>
             <li data-knapp="fn" class="gallinule">Purple Gallinule</li>
             <li data-knapp="fn" class="canvasback">Canvasback</li>
@@ -27,6 +28,14 @@
             onSelect: function(obj) {
                 if ( obj.action === "fn" ) {
                     feedback.innerHTML = "You’ve clicked on: "+ obj.name;
+                }
+                if ( obj.action === "add dogs" ) {
+                    // add new items dynamically
+                    birds.add([
+                        { name: "Labrador Retriever", action: "fn", classlist: "labrador" },
+                        { name: "Spaniel", action: "fn", classlist: "spaniel" }
+                    ]);
+                    feedback.innerHTML = "You’ve clicked on dogs!<br />A couple of dogs have been added to list";
                 }
             },
             onChange: function(obj) {

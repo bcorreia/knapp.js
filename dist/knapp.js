@@ -1,5 +1,5 @@
 /**
- * knapp.js - version 1.1.0
+ * knapp.js - version 1.2.0
  *
  * https://github.com/bcorreia/knapp.js.git
  * Bruno Correia - mail@bcorreia.com
@@ -138,6 +138,20 @@ var Knapp = (function() {
             data: { value: [], writable: true }
         });
         knapp.init(node);
+
+        var pub = {
+            /**
+             * add new items
+             * @param [Array of Objects] { name, action and classlist }
+             */
+            add: function(arr) {
+                arr.forEach(function(obj, i) {
+                    knapp.data.push(obj);
+                });
+            }
+        };
+
+        return pub;
     }
 
     return Knapp;
