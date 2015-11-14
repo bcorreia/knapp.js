@@ -21,7 +21,7 @@ npm install knapp.js
 
 ```javascript
 var example = new Knapp(document.querySelector('ul.example'), {
-    selected: 1, // index 0
+    selected: 1, // zero-based index
     onSelect: function(obj) {
         // console.log(obj);
     },
@@ -33,25 +33,23 @@ var example = new Knapp(document.querySelector('ul.example'), {
 
 ## Default Settings
 ```javascript
-selected: 0, // zero index
+selected: 0, // zero-based index
 onSelect: function() {}, // callback fn
 onChange: function() {} // callback fn
 ```
 
 ### Callbacks
 ```javascript
-onSelect: function(obj) {  // called once item has been selected
-    // { name: value, action: value }
-}
-onChange: function(obj) { // called on every change
-    // { name: value, action: value }
+onSelect: function(obj) {}  // called once item has been selected
+onChange: function(obj) {} // called on every change
 }
 ```
 
 ### Public Methods
 ```javascript
-// add new items
-.add(arr) // @param [Array of Objects] { name, action and classlist }
+// add new items dynamically
+.add(arr) // @param [Array of Objects]
+          // Object keys: name, action and classlist
 ```
 
 ### HTML data-attribute
