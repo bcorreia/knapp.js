@@ -1,0 +1,21 @@
+{
+  "name": "knapp.js",
+  "description": "Knapp.js TBD",
+  "version": "1.0.0 beta",
+  "authors": [
+    "Bruno Correia <mail@bcorreia.com>"
+  ],
+  "main": [
+    "dist/knapp.js",
+    "dist/knapp.min.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ]
+}

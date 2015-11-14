@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Knapp.js</title>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+    <div>
+        <ul class="birds">
+            <li data-knapp="custom.fn.name">Mountain Bluebird</li>
+            <li data-knapp="custom.fn.name">Snow Buting</li>
+            <li data-knapp="custom.fn.name">Indigo Bunting</li>
+            <li data-knapp="custom.fn.name">King Rail</li>
+            <li data-knapp="custom.fn.name">Purple Gallinule</li>
+            <li data-knapp="custom.fn.name">Canvasback</li>
+        </ul>
+    </div>
+    <div class="feedback"></div>
+    <script src="./knapp.js"></script>
+    <script>
+        var feedback = document.querySelector('.feedback');
+        var birds = new Knapp(document.querySelector('ul.birds'), {
+            selected: 1, // index 0
+            onSelect: function(item) {
+                if ( item.action === "custom.fn.name" ) {
+                    feedback.innerHTML = "You’ve clicked on: "+ item.name;
+                }
+            },
+            onChange: function(item) {
+                console.log(item);
+                feedback.innerHTML = "";
+            }
+        });
+    </script>
+</body>
+</html>

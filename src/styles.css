@@ -1,0 +1,18 @@
+*                       { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body                    { font-family: helvetica; padding: 4em; }
+.birds                  { display: none; }
+.knapp                  { overflow: hidden; width: 300px; background-color: #BAE0BB; color: #808480; letter-spacing: .02em; }
+.knapp                  { display: flex; display: -webkit-flex; align-items: center; -webkit-align-items: center; justify-content:center; -webkit-justify-content:center; }
+.knapp > div            { cursor: pointer; height: 40px; -moz-user-select: none; -webkit-user-select: none; }
+.knapp .stage           { left; padding: 0 1em; flex-grow: 1; display: flex; display: -webkit-flex; align-items: center; -webkit-align-items: center; justify-content:center; -webkit-justify-content:center; }
+.knapp .next            { min-width: 40px; background: url("./images/caret-up.png") center center no-repeat; transition: all .5s; }
+.knapp .prev            { min-width: 40px; background: url("./images/caret-down.png") center center no-repeat; transition: all .5s; }
+.knapp .next:hover,
+.knapp .prev:hover      { opacity: .375; }
+
+.knapp .transition      { transition: all .375s ease-out; -webkit-transform: translateZ(0px); }
+.knapp .-up             { transform: translateY(-100%); }
+.knapp .-down           { transform: translateY(100%); }
+.knapp .-on             { transform: translateY(0); }
+
+.feedback               { padding: 2em 0 0 0; color: #808480; letter-spacing: .02em; }
