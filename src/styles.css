@@ -16,3 +16,10 @@ body                    { font-family: helvetica; padding: 4em; }
 .knapp .-on             { transform: translateY(0); }
 
 .feedback               { padding: 2em 0 0 0; color: #808480; letter-spacing: .02em; }
+
+.snow                   { background-color: #EAEAEA; color: #555; }
+.bluebird               { background-color: #89A1A7; color: #FFF; }
+.canvasback             { background-color: #8C816B; color: #FFF; }
+.gallinule              { background-color: #958BCC; color: #FFF; }
+.rail                   { background-color: #4C544C; color: #FFF; }
+.indigo                 { background-color: #30587B; color: #FFF; }

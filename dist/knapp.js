@@ -1,5 +1,5 @@
 /**
- * knapp.js - version 1.0.0 beta
+ * knapp.js - version 1.0.1
  *
  * https://github.com/bcorreia/knapp.js.git
  * Bruno Correia - mail@bcorreia.com
@@ -23,7 +23,8 @@ var Knapp = (function() {
             for ( var i = 0; i < list.children.length; i += 1 ) {
                 this.data[i] = {
                     name: list.children[i].innerHTML,
-                    action: list.children[i].getAttribute("data-knapp")
+                    action: list.children[i].getAttribute("data-knapp"),
+                    classlist: list.children[i].getAttribute("class")
                 }
             };
 
@@ -36,6 +37,7 @@ var Knapp = (function() {
             elements.knapp.appendChild(elements.stage); // stage
             elements.knapp.insertBefore(elements.prev, elements.knapp.childNodes[0]); // prev
             elements.knapp.appendChild(elements.next); // next
+            elements.stage.classList.add(this.data[this.settings.selected].classlist);
 
             parent.removeChild(list);
             parent.appendChild(elements.knapp);
@@ -70,7 +72,8 @@ var Knapp = (function() {
                     var stage = this.elements.stage;
 
                     setTimeout(function() {
-                        stage.classList.add('transition');
+                        stage.className = "";
+                        stage.classList.add('stage', this.data[selected].classlist, 'transition');
                         stage.style.transform = "translateY(0)";
                         stage.removeAttribute("style");
                         this.update(selected);
@@ -78,13 +81,13 @@ var Knapp = (function() {
                 }
 
                 if ( event.target.className.match(/-up$/) ) {
-                    stage.classList.remove('transition', "-up");
+                    stage.classList.remove('transition', '-up');
                     stage.style.transform = "translateY(100%)";
                     on.call(this);
                 }
 
                 if ( event.target.className.match(/-down$/) ) {
-                    stage.classList.remove('transition', "-down");
+                    stage.classList.remove('transition', '-down');
                     stage.style.transform = "translateY(-100%)";
                     on.call(this);
                 }

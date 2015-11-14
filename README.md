@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/bcorreia/knapp.js.svg?branch=master)](https://travis-ci.org/bcorreia/knapp.js)
 
 ---
-Add knapp.js - Knapp can take any shape color and size.<br />
+Knapp can take any shape color and size. Knapp iterates the provided node element, creates an array of objects, and outputs a “knapp” styled element ready to use.<br />
 [**Demo**](http://bcorreia.com/projects/knapp.js/src/demo.html)
 
 ## Getting Started
@@ -49,12 +49,12 @@ onChange: function(obj) { // called on every change
 ```
 
 ### HTML data-attribute
-Add `data-knapp` attribute to every list element.
+Add `data-knapp` attribute to each element.
 ```html
 <!-- example -->
 <ul class="example">
-    <li data-knapp="http://address.com">Mountain Bluebird</li>
-    <li data-knapp="custom function">Snow Buting</li>
+    <li class="bluebird" data-knapp="http://address.com">Mountain Bluebird</li>
+    <li class="show" data-knapp="custom function">Snow Buting</li>
 </ul>
 ```
 

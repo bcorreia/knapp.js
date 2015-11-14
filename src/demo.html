@@ -10,27 +10,28 @@
 <body>
     <div>
         <ul class="birds">
-            <li data-knapp="custom.fn.name">Mountain Bluebird</li>
-            <li data-knapp="custom.fn.name">Snow Buting</li>
-            <li data-knapp="custom.fn.name">Indigo Bunting</li>
-            <li data-knapp="custom.fn.name">King Rail</li>
-            <li data-knapp="custom.fn.name">Purple Gallinule</li>
-            <li data-knapp="custom.fn.name">Canvasback</li>
+            <li data-knapp="custom.fn.name" class="bluebird">Mountain Bluebird</li>
+            <li data-knapp="custom.fn.name" class="snow">Snow Buting</li>
+            <li data-knapp="custom.fn.name" class="indigo">Indigo Bunting</li>
+            <li data-knapp="custom.fn.name" class="rail">King Rail</li>
+            <li data-knapp="custom.fn.name" class="gallinule">Purple Gallinule</li>
+            <li data-knapp="custom.fn.name" class="canvasback">Canvasback</li>
         </ul>
     </div>
     <div class="feedback"></div>
     <script src="./knapp.js"></script>
     <script>
         var feedback = document.querySelector('.feedback');
+        console.log(feedback);
         var birds = new Knapp(document.querySelector('ul.birds'), {
             selected: 1, // index 0
-            onSelect: function(item) {
-                if ( item.action === "custom.fn.name" ) {
-                    feedback.innerHTML = "You’ve clicked on: "+ item.name;
+            onSelect: function(obj) {
+                if ( obj.action === "custom.fn.name" ) {
+                    feedback.innerHTML = "You’ve clicked on: "+ obj.name;
                 }
             },
-            onChange: function(item) {
-                console.log(item);
+            onChange: function(obj) {
+                console.log(obj);
                 feedback.innerHTML = "";
             }
         });
