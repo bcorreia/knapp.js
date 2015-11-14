@@ -48,6 +48,12 @@ onChange: function(obj) { // called on every change
 }
 ```
 
+### Public Methods
+```javascript
+// add new items
+.add(arr) // @param [Array of Objects] { name, action and classlist }
+```
+
 ### HTML data-attribute
 Add `data-knapp` attribute to each element.
 ```html
