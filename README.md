@@ -42,7 +42,6 @@ onChange: function() {} // callback fn
 ```javascript
 onSelect: function(obj) {}  // called once item has been selected
 onChange: function(obj) {} // called on every change
-}
 ```
 
 ### Public Methods
