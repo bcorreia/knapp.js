@@ -38,11 +38,15 @@
                     feedback.innerHTML = "You’ve clicked on dogs!<br />A couple of dogs have been added to list";
                 }
             },
-            onChange: function(obj) {
-                feedback.innerHTML = "";
-            },
             onReady: function() {
                 console.log('ready');
+            },
+            onChange: function() {
+                console.log('on change');
+            },
+            onComplete: function(obj) {
+                feedback.innerHTML = "";
+                console.log('on complete');
             }
         });
     </script>

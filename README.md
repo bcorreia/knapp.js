@@ -25,7 +25,7 @@ var example = new Knapp(document.querySelector('ul.example'), {
     onSelect: function(obj) {
         // console.log(obj);
     },
-    onChange: function(obj) {
+    onComplete: function(obj) {
         // console.log(obj);
     }
 });
@@ -33,16 +33,18 @@ var example = new Knapp(document.querySelector('ul.example'), {
 
 ## Default Settings
 ```javascript
-selected: 0, // zero-based index
-onSelect: function() {}, // callback fn
+selected: 0 // zero-based index
+onSelect: function(obj) {} // callback fn
 onChange: function() {} // callback fn
+onComplete: function(obj) {} // callback fn
 ```
 
 ### Callbacks
 ```javascript
 onReady: function() {} // called once ready
-onSelect: function(obj) {}  // called once item has been selected
-onChange: function(obj) {} // called on every change
+onSelect: function(obj) {}  // called once an item has been selected
+onChange: function() {} // called on seek, before transiton starts
+onComplete: function(obj) {} // called on transition end
 ```
 
 ### Public Methods

@@ -1,5 +1,5 @@
 /**
- * knapp.js - version 1.2.1
+ * knapp.js - version 1.3.0
  *
  * https://github.com/bcorreia/knapp.js.git
  * Bruno Correia - mail@bcorreia.com
@@ -12,7 +12,8 @@ var Knapp = (function() {
         selected: 0,
         onReady: function() {},
         onSelect: function() {},
-        onChange: function() {}
+        onChange: function() {},
+        onComplete: function() {}
     };
 
     var methods = {
@@ -56,11 +57,13 @@ var Knapp = (function() {
                     case "prev":
                         selected = (selected === 0) ? this.data.length-1 : selected -= 1;
                         stage.classList.add('transition', '-up');
+                        this.settings.onChange();
                     break;
 
                     case "next":
                         selected = (selected === this.data.length-1) ? 0 : selected += 1;
                         stage.classList.add('transition', '-down');
+                        this.settings.onChange();
                     break;
 
                     case "stage":
@@ -99,7 +102,7 @@ var Knapp = (function() {
             var stage = this.elements.stage;
 
             stage.innerText = this.data[selected].name;
-            return this.settings.onChange(this.data[selected]); // callback
+            return this.settings.onComplete(this.data[selected]); // callback
         },
         action: function(selected) {
             var item = this.data[selected],
