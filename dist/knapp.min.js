@@ -1,5 +1,5 @@
 /**
- * knapp.js - version 1.2.0
+ * knapp.js - version 1.2.1
  *
  * https://github.com/bcorreia/knapp.js.git
  * Bruno Correia - mail@bcorreia.com
