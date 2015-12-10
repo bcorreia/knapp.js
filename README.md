@@ -40,6 +40,7 @@ onChange: function() {} // callback fn
 
 ### Callbacks
 ```javascript
+onReady: function() {} // called once ready
 onSelect: function(obj) {}  // called once item has been selected
 onChange: function(obj) {} // called on every change
 ```

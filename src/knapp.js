@@ -3,6 +3,7 @@ var Knapp = (function() {
 
     var defaults = {
         selected: 0,
+        onReady: function() {},
         onSelect: function() {},
         onChange: function() {}
     };
@@ -33,6 +34,9 @@ var Knapp = (function() {
 
             parent.removeChild(node);
             parent.appendChild(elements.knapp);
+            setTimeout(function() {
+                this.settings.onReady();
+            }.bind(this), 0);
             this.addlisteners();
         },
         addlisteners: function() {
