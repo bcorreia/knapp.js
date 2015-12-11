@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Knapp.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+    <div class="knapp-stage"></div>
+    <div class="feedback"></div>
+    <script src="./knapp.js"></script>
+    <script>
+        var feedback = document.querySelector('.feedback');
+        var arr = [
+            { name: "Mountain Bluebird", classlist: "bluebird", action: "fn" },
+            { name: "Snow Buting", classlist: "snow", action: "fn" },
+            { name: "Indigo Bunting", classlist: "indigo", action: "fn" },
+            { name: "King Rail", classlist: "rail", action: "fn" },
+            { name: "Purple Gallinule", classlist: "gallinule", action: "fn" },
+            { name: "Canvasback", classlist: "canvasback", action: "fn" }
+        ];
+
+        var birds = new Knapp(arr, {
+            selected: 0,
+            onSelect: function(obj) {
+                console.log('onSelect');
+            },
+            onReady: function() {
+                console.log('onReady');
+            },
+            onChange: function() {
+                console.log('onChange');
+            },
+            onComplete: function(obj) {
+                console.log('onComplete');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 /**
- * knapp.js - version 1.3.0
+ * knapp.js - version 1.3.1
  *
  * https://github.com/bcorreia/knapp.js.git
  * Bruno Correia - mail@bcorreia.com
@@ -19,13 +19,25 @@ var Knapp = (function() {
     var methods = {
         init: function(node) {
             var elements = this.elements,
-                parent = node.parentNode;
+                parent = node.parentNode || document.querySelector('.knapp-stage'); // defaults to .knapp-stage if not node element
 
-            for ( var i = 0; i < node.children.length; i += 1 ) {
-                this.data[i] = {
-                    name: node.children[i].innerHTML,
-                    action: node.children[i].getAttribute("data-knapp"),
-                    classlist: node.children[i].getAttribute("class")
+            // node (DOM) element provided
+            if ( node.nodeName ) {
+                for ( var i = 0; i < node.children.length; i += 1 ) {
+                    this.data[i] = {
+                        name: node.children[i].innerHTML,
+                        action: node.children[i].getAttribute("data-knapp"),
+                        classlist: node.children[i].getAttribute("class")
+                    }
+                }
+            } else {
+                // array of objects provided
+                for ( var i = 0; i < node.length; i += 1 ) {
+                    this.data[i] = {
+                        name: node[i].name,
+                        action: node[i].action,
+                        classlist: node[i].classlist
+                    }
                 }
             }
 
@@ -40,7 +52,7 @@ var Knapp = (function() {
             elements.knapp.appendChild(elements.next); // next
             elements.stage.classList.add(this.data[this.settings.selected].classlist);
 
-            parent.removeChild(node);
+            parent.hasChildNodes() && parent.removeChild(node);
             parent.appendChild(elements.knapp);
             setTimeout(function() {
                 this.settings.onReady();
@@ -134,7 +146,7 @@ var Knapp = (function() {
 
      /**
       * constructor
-      * @param {Object} node element
+      * @param {Object} node element or array of objects { name, classlist and action }
       * @param {Object} options
       *
       */
@@ -157,7 +169,6 @@ var Knapp = (function() {
                 });
             }
         };
-
         return pub;
     }
 
